@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <form class="" method="post">
+      <label for="">Ten</label>
+      <input type="text" name="name" value="{{ service.name }}">
+
+      <br>
+
+      <label for="">So dien thoai</label>
+      <input type="text" name="phone" value=" {{ service.phone}}">
+
+      <br>
+
+      <label for="">Nam sinh</label>
+      <input type="number" name="yob" value="{{  service.yob }}">
+
+      <br>
+
+      <label for="">Gioi tinh</label>
+      {% if service.gender == 1 %}
+      <input type="radio" name="gender" value="1", checked="checked">Nam
+      <input type="radio" name="gender" value="0">Nu
+      {% else %}
+      <input type="radio" name="gender" value="1">Nam
+      <input type="radio" name="gender" value="0", checked="checked">Nu
+      {% endif %}
+
+      <br>
+
+      <label for="">Chieu cao (cm)</label>
+      <input type="number" name="height" value="{{ service.height }}">
+
+      <input type="submit" value="Cap nhat">
+
+    </form>
+
+    {% for message in get_flashed_messages() %}
+      <p>{{message}}</p>
+    {% endfor %}
+    
+  </body>
+</html>
